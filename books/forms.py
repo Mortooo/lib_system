@@ -35,7 +35,6 @@ class BookForm(ModelForm):
 
         # if user add empty title for the book
         if not cleaned_data.get('title'):
-            print('he did add empty title ')
             raise forms.ValidationError('الرجاء ادخال عنوان الكتاب')
 
         #if the user add more than 1,000,000 copy

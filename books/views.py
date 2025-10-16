@@ -2,12 +2,15 @@ from django.db.models import Q
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DeleteView, CreateView, UpdateView
+from django.contrib.auth.decorators import login_required
+
 
 from books.forms import BookForm
 from books.models import Book
 
 
 # Create your views here.
+
 
 def home(request):
 

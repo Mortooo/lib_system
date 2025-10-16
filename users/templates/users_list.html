@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}📚 قائمة المستخدمين{% endblock %}
+
+{% block content %}
+<div dir="rtl" class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-10 px-6">
+
+  <!-- العنوان و زر الإضافة -->
+  <div class="max-w-6xl mx-auto mb-8 flex flex-row-reverse justify-between items-center">
+
+    <a href="{% url 'user_add' %}"
+       class="bg-indigo-800 hover:bg-indigo-700 text-white px-6 py-2  shadow-md transition-all duration-300 flex items-center gap-2">
+      <i class="bi bi-plus-circle"></i> إضافة مستخدم جديد
+    </a>
+  </div>
+
+
+
+
+  <div class="max-w-6xl mx-auto bg-white shadow-lg  overflow-hidden border border-gray-200">
+
+
+      <!-- جدول المستخدمين -->
+  {% if users %}
+    <table class="w-full text-center border-collapse">
+      <thead class="bg-indigo-800 text-white text-base">
+        <tr>
+          <th class="py-4">م</th>
+          <th class="py-4">📘 اسم المستخدم </th>
+          <th class="py-4">✍️ البريد الالكترني</th>
+          <th class="py-4">⚙️ العمليات</th>
+
+
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-100">
+        {% for user in users %}
+        <tr class="hover:bg-indigo-50 transition duration-200">
+<!--            <td class="py-3 font-semibold text-gray-800">{{ book.title }}</td>-->
+          <td class="py-3 font text-gray-800">{{ user.id }}</td>
+          <td class="py-3 font text-gray-800">{{ user.username }}</td>
+          <td class="py-3">{{ user.email }}</td>
+         
+          <td class="py-3 flex justify-center gap-3">
+            <a href="{% url 'user_update' user.id %}"
+               class="text-blue-600 hover:text-blue-800 bg-blue-100 hover:bg-blue-200 px-3 py-1 rounded-lg transition duration-200 flex items-center gap-1">
+              <i class="bi bi-pencil"></i> تعديل
+            </a>
+            <a href="{% url 'user_delete' user.id %}"
+               class="text-red-600 hover:text-red-800 bg-red-100 hover:bg-red-200 px-3 py-1 rounded-lg transition duration-200 flex items-center gap-1">
+              <i class="bi bi-trash"></i> حذف
+            </a>
+
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="max-w-4xl mx-auto mt-10 bg-yellow-50 border border-yellow-300 text-yellow-800 text-center py-6 rounded-2xl shadow-sm">
+    لا توجد مستخدمين حالياً في المكتبة 📖
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

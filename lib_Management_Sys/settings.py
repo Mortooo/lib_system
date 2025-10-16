@@ -40,6 +40,13 @@ INSTALLED_APPS = [
     'books',
     'authors',
     'borrowers',
+    'allauth',
+    'allauth.account',
+    'django.contrib.sites',
+    'users',
+    'borrows',
+
+    
 ]
 
 MIDDLEWARE = [
@@ -50,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+     'allauth.account.middleware.AccountMiddleware'
 ]
 
 ROOT_URLCONF = 'lib_Management_Sys.urls'
@@ -125,3 +133,18 @@ STATICFILES_DIRS = [BASE_DIR / 'static']  # ✅ global static folder
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SITE_ID = 1
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+LOGIN_REDIRECT_URL = '/'       # where to go after login
+LOGOUT_REDIRECT_URL = '/'      # where to go after logout
+
+ACCOUNT_EMAIL_VERIFICATION = "none"  # can be "mandatory"
+ACCOUNT_AUTHENTICATION_METHOD = "username"  # or "email" / "username_email"
+ACCOUNT_EMAIL_REQUIRED = True
+
+

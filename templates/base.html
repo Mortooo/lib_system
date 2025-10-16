@@ -43,9 +43,14 @@
                 <a href="{% url 'home' %}">الرئيسية</a>
                 <a href="{% url 'books_list' %}">الكتب</a>
                 <a href="{% url 'borrowers_list' %}">الأعضاء</a>
-                <a href="#">الإعارة</a>
-                <a href="#">المستخدمون</a>
-                <a href="#" class="btn-login">تسجيل الدخول</a>
+                <a href="{% url 'borrows_list' %}">الإعارة</a>
+                <a href="{% url 'users_list' %}">المستخدمون</a>
+                {% if user.is_authenticated %}
+                <a href="{% url 'account_logout' %}" class="btn-login">تسجيل خروج</a> 
+                {% else %}    
+                <a href="{% url 'account_login' %}" class="btn-login">تسجيل دخول</a>
+                {% endif %}
+                
             </nav>
         </div>
     </header>
@@ -54,7 +59,7 @@
 
     <!-- التذييل -->
     <footer>
-        <p>نظام إدارة المكتبة |تصميم: مرتضى محمد © 2025  </p>
+        <p>نظام إدارة المكتبة   |    تصميم: مرتضى محمد © 2025  </p>
     </footer>
 </body>
 
