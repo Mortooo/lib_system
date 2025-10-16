@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% block title %}{{ form.instance.pk|yesno:"تعديل كتاب,إضافة كتاب جديد" }}{% endblock %}
+
+{% block content %}
+<div dir="rtl" class="max-w-5xl mx-auto mt-10 mb-10 p-8 bg-white rounded-3xl shadow-2xl">
+  <h2 class="text-3xl font-extrabold mb-8 text-center text-indigo-700">
+    {{ form.instance.pk|yesno:"✏️ تعديل الكتاب 📚,📚 إضافة كتاب جديد" }}
+  </h2>
+
+  <form method="post" enctype="multipart/form-data"
+        class="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
+    {% csrf_token %}
+
+
+
+    <!-- ✅ الحقول -->
+    <div class="md:col-span-2 flex flex-col space-y-5" id="fieldsContainer">
+      <div>
+        <label class="text-gray-700 font-semibold mb-1">{{ form.title.label_tag }}</label>
+        {{ form.title }}
+      </div>
+
+      <div>
+        <label class="text-gray-700 font-semibold mb-1">{{ form.author.label_tag }}</label>
+        {{ form.author }}
+      </div>
+
+      <div>
+        <label class="text-gray-700 font-semibold mb-1">{{ form.isbn.label_tag }}</label>
+        {{ form.isbn }}
+      </div>
+
+      <div>
+        <label class="text-gray-700 font-semibold mb-1">{{ form.total_copies.label_tag }}</label>
+        {{ form.total_copies }}
+      </div>
+
+      <div>
+        <label class="text-gray-700 font-semibold mb-1">{{ form.cover.label_tag }}</label>
+        {{ form.cover }}
+      </div>
+
+      <div class="flex justify-between mt-6">
+        <button type="submit"
+                class="flex items-center bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-xl shadow-lg transition duration-200">
+          💾 حفظ
+        </button>
+        <a href="{% url 'books_list' %}"
+           class="flex items-center bg-gray-300 hover:bg-gray-400 px-6 py-2 rounded-xl transition duration-200">
+          ❌ إلغاء
+        </a>
+      </div>
+
+    </div>
+
+    <!-- ✅ معاينة الغلاف -->
+    <div class="md:col-span-2 flex flex-col items-center justify-start">
+      <div id="previewContainer"
+           class="w-full border-2 border-gray-300 rounded-xl p-2 bg-gray-50 flex items-center justify-center overflow-hidden"
+           style="height: 100%;">
+        <img id="coverPreview"
+             src="{% if form.instance.cover %}{{ form.instance.cover.url }}{% else %}https://cdn-icons-png.flaticon.com/512/29/29302.png{% endif %}"
+             alt="معاينة الغلاف"
+             class="w-full h-full object-contain rounded-lg shadow-md">
+      </div>
+      <p class="text-sm text-gray-500 mt-2">معاينة الغلاف</p>
+    </div>
+  </form>
+  {% if form.non_field_errors %}
+      <p class="text-red-500 text-m mt-1">{{ form.non_field_errors|striptags }}</p>
+      {% endif %}
+</div>
+
+
+<!-- ✅ سكربت المعاينة والتعديل -->
+<script>
+  const coverInput = document.getElementById("id_cover");
+  const preview = document.getElementById("coverPreview");
+  const fieldsContainer = document.getElementById("fieldsContainer");
+  const previewContainer = document.getElementById("previewContainer");
+
+  // ضبط ارتفاع الصورة ليكون مساوي للحقول
+  function adjustPreviewHeight() {
+    previewContainer.style.height = fieldsContainer.offsetHeight + "px";
+  }
+  window.addEventListener("load", adjustPreviewHeight);
+  window.addEventListener("resize", adjustPreviewHeight);
+
+  // معاينة الصورة الجديدة عند التغيير
+  if (coverInput) {
+    coverInput.addEventListener("change", function (event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          preview.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  }
+</script>
+{% endblock %}

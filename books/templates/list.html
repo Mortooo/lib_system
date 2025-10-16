@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}📚 قائمة الكتب{% endblock %}
+
+{% block content %}
+<div dir="rtl" class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-10 px-6">
+
+  <!-- العنوان و زر الإضافة -->
+  <div class="max-w-6xl mx-auto mb-8 flex flex-row-reverse justify-between items-center">
+
+    <a href="{% url 'book_add' %}"
+       class="bg-indigo-800 hover:bg-indigo-700 text-white px-6 py-2  shadow-md transition-all duration-300 flex items-center gap-2">
+      <i class="bi bi-plus-circle"></i> إضافة كتاب
+    </a>
+  </div>
+
+
+
+
+  <div class="max-w-6xl mx-auto bg-white shadow-lg  overflow-hidden border border-gray-200">
+
+      <!-- 🔍 نموذج البحث -->
+  <form method="get" class="grid grid-cols-1 md:grid-cols-6 gap-4 mb-6" >
+    <input type="text" name="q"  placeholder="🔎 ابحث بالعنوان أو المؤلف"
+      class="col-span-4 border border-gray-300  p-2 focus:ring focus:ring-indigo-300">
+
+    <select name="status" class="col-span-1 border border-gray-300  p-2 focus:ring focus:ring-indigo-300">
+      <option value="all">جميع الحالات</option>
+      <option value="available" >متاح</option>
+      <option value="unavailable" >غيرمتاح</option>
+    </select>
+
+    <button
+      type="submit"
+      class="col-span-1 bg-green-500 hover:bg-indigo-700 text-white font-semibold py-2  shadow-lg transition duration-200"
+    >
+      بحث
+    </button>
+  </form>
+
+
+
+
+
+      <!-- جدول الكتب -->
+  {% if books %}
+    <table class="w-full text-center border-collapse">
+      <thead class="bg-indigo-800 text-white text-base">
+        <tr>
+          <th class="py-4">م</th>
+          <th class="py-4">📘 العنوان</th>
+          <th class="py-4">✍️ المؤلف</th>
+          <th class="py-4">📦 عدد النسخ</th>
+          <th class="py-4">✅ المتاح</th>
+          <th class="py-4">⚙️ العمليات</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-100">
+        {% for book in books %}
+        <tr class="hover:bg-indigo-50 transition duration-200">
+<!--            <td class="py-3 font-semibold text-gray-800">{{ book.title }}</td>-->
+          <td class="py-3 font text-gray-800">{{ book.id }}</td>
+          <td class="py-3 font text-gray-800">{{ book.title }}</td>
+          <td class="py-3">{{ book.author }}</td>
+          <td class="py-3">{{ book.total_copies }}</td>
+          <td class="py-3 bg-green-100 text-green-700 px-3 py-1">
+            {% if book.available_copies > 0 %}
+              <span class="font-semibold">
+                {{ book.available_copies }} متاح
+              </span>
+            {% else %}
+              <span class="bg-red-100 text-red-700 px-3 py-1  text-xs font-semibold">
+                غير متاح
+              </span>
+            {% endif %}
+          </td>
+          <td class="py-3 flex justify-center gap-3">
+            <a href="{% url 'book_update' book.id %}"
+               class="text-blue-600 hover:text-blue-800 bg-blue-100 hover:bg-blue-200 px-3 py-1 rounded-lg transition duration-200 flex items-center gap-1">
+              <i class="bi bi-pencil"></i> تعديل
+            </a>
+            <a href="{% url 'book_delete' book.id %}"
+               class="text-red-600 hover:text-red-800 bg-red-100 hover:bg-red-200 px-3 py-1 rounded-lg transition duration-200 flex items-center gap-1">
+              <i class="bi bi-trash"></i> حذف
+            </a>
+
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="max-w-4xl mx-auto mt-10 bg-yellow-50 border border-yellow-300 text-yellow-800 text-center py-6 rounded-2xl shadow-sm">
+    لا توجد كتب حالياً في المكتبة 📖
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
