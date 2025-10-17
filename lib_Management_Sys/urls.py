@@ -20,6 +20,7 @@ from books import views
 from books.views import BookAddView
 
 urlpatterns = [
+    path('', views.home, name='home'),
     path('accounts/', include('allauth.urls')),  # add this
     path('admin/', admin.site.urls),
     path('books/', include('books.urls')),

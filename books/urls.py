@@ -8,5 +8,4 @@ urlpatterns = [
     path('add/', login_required(BookAddView.as_view()), name='book_add'),
     path('update/<int:pk>', login_required(BookUpdateView.as_view()), name='book_update'),
     path('delete/<int:pk>', login_required(BookDeletetView.as_view()), name='book_delete'),
-    path('', home, name='home'),
 ]
