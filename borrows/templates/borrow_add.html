@@ -15,7 +15,7 @@
 
 
     <!-- ✅ الحقول -->
-     
+
     <div class="md:col-span-4 flex flex-col space-y-5" id="fieldsContainer">
       <div>
         <label class="text-gray-700 font-semibold mb-1">{{ form.book.label_tag }}</label>
@@ -27,20 +27,26 @@
         {{ form.borrower }}
       </div>
 
-       <div>
+      <div>
         <label class="text-gray-700 font-semibold mb-1">{{ form.user.label_tag }}</label>
         {{ form.user }}
-      </div> 
+      </div>  
 
       <div>
         <label class="text-gray-700 font-semibold mb-1">{{ form.borrow_date.label_tag }}</label>
         {{ form.borrow_date }}
-      </div>
-
-      <div>
+        <span class="mx-20"></span>
+        <span class="mx-9"></span>
         <label class="text-gray-700 font-semibold mb-1">{{ form.return_date.label_tag }}</label>
         {{ form.return_date }}
       </div>
+
+      <!--borrow time -->
+      {% if form.instance.pk %}
+      <div class="text-gray-700 font-semibold mb-1 text-center">
+        {{ form.instance.days_borrowed }} 
+      </div>
+      {% endif %}
 
       <div>
         <label class="text-gray-700 font-semibold mb-1">{{ form.is_returned.label_tag }}</label>

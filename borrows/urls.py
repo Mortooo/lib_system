@@ -6,6 +6,6 @@ from . import views
 
 urlpatterns = [
     path('list/', login_required(views.BorrowListView.as_view()), name='borrows_list'),
-    path('add/', login_required(views.BorrowCreateView.as_view()), name='borrow_add'),
+    path('add/<int:pk>', login_required(views.BorrowCreateView.as_view()), name='borrow_add'),
     path('update/<int:pk>/', login_required(views.BorrowUpdateView.as_view()), name='borrow_update'),   
 ]
