@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-kw_vxc&oqj#p1i0-!di1src04dy*t9a=9+gc@g29rwgnv!ga@='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['your-service-name.onrender.com']
 
 
 # Application definition
@@ -146,5 +146,10 @@ LOGOUT_REDIRECT_URL = '/'      # where to go after logout
 ACCOUNT_EMAIL_VERIFICATION = "none"  # can be "mandatory"
 ACCOUNT_AUTHENTICATION_METHOD = "username"  # or "email" / "username_email"
 ACCOUNT_EMAIL_REQUIRED = True
+
+
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 
 

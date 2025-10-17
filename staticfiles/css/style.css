@@ -1,0 +1,179 @@
+   * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Cairo", sans-serif;
+            background-color: #f5f7fb;
+            color: #222;
+            direction: rtl;
+        }
+
+        /* الرأس */
+        header {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            max-width: 1200px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #facc15;
+        }
+
+        .btn-login {
+            background-color: #facc15;
+            color: #1e3a8a;
+            padding: 6px 14px;
+            border-radius: 5px;
+        }
+
+        /* قسم الترحيب */
+        .hero {
+            background: linear-gradient(rgba(30, 58, 138, 0.85), rgba(30, 58, 138, 0.85)),
+                url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 20px 20px;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .hero h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            margin-bottom: 25px;
+        }
+
+        /* البطاقات */
+        .features {
+            padding: 60px 0;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            width: 280px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .icon {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 16px;
+            background-color: #1e3a8a;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #334ebd;
+        }
+
+        /* قسم حول النظام */
+        .about {
+            background-color: #e0e7ff;
+            text-align: center;
+            padding: 60px 20px;
+            font-size: 1.1em;
+
+        }
+
+        .about h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        /* التذييل */
+        footer {
+            background-color: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        /* متجاوب */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero h2 {
+                font-size: 1.5em;
+            }
+        }
+
+        .table-hover tbody tr:hover {
+            background-color: #f2f8ff;
+            transition: 0.3s;
+        }
+        .btn {
+            transition: transform 0.2s ease;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+
