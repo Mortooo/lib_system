@@ -27,8 +27,8 @@
 
     <select name="status" class="col-span-1 border border-gray-300  p-2 focus:ring focus:ring-indigo-300">
       <option value="all">جميع الحالات</option>
-      <option value="available" >تم الارجاع</option>
-      <option value="unavailable" >لم يتم الارجاع</option>
+      <option value="returned" >تم الارجاع</option>
+      <option value="not_returned" >لم يتم الارجاع</option>
     </select>
 
     <button
@@ -112,5 +112,29 @@
     لا توجد كتب مقترضة حالياً في المكتبة 📖
   </div>
   {% endif %}
+
+
+
+
+  <div class="max-w-6xl mx-auto mb-8 flex flex-row-reverse justify-between items-center">
+
+    <a href="{% url 'borrows_delete' 'some' %}"
+       class="bg-red-500 hover:bg-indigo-700 text-white px-6 py-2  shadow-md transition-all duration-300 flex items-center gap-2">
+      <i class="bi bi-plus-circle"></i> حذف سجلات الإرجاع
+    </a>
+
+
+    <a href="{% url 'borrows_delete' 'all' %}"
+       class="bg-red-800 hover:bg-indigo-700 text-white px-6 py-2  shadow-md transition-all duration-300 flex items-center gap-2">
+      <i class="bi bi-plus-circle"></i> حذف جميع السجلات
+    </a>
+
+  </div>
+
 </div>
+
+
+
+
+
 {% endblock %}
