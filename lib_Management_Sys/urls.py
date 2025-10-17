@@ -25,7 +25,6 @@ urlpatterns = [
     path('books/', include('books.urls')),
     path('borrowers/',include('borrowers.urls')),
     path('users/',include('users.urls')),
-    path('', views.home, name='home'),
     path('borrows/',include('borrows.urls')),
     
 
