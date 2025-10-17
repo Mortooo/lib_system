@@ -23,6 +23,11 @@
       <div>
         <label class="text-gray-700 font-semibold mb-1">{{ form.author.label_tag }}</label>
         {{ form.author }}
+        {% comment %} <datalist id='authors'>
+          {% for author in authors %}
+            <option value='{{ author }}'>{{ author.name }}</option>
+          {% endfor %}
+        </datalist> {% endcomment %}
       </div>
 
       <div>

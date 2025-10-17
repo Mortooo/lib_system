@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 from books.forms import BookForm
 from books.models import Book
+from authors.models import Author
 
 
 # Create your views here.
@@ -59,7 +60,18 @@ class BookAddView(CreateView):
     model = Book
     form_class = BookForm
     success_url = reverse_lazy('books_list')
+    
+    # def get_context_data(self, **kwargs):
+        
+    #     context=super().get_context_data(**kwargs)
+    #     authors=Author.objects.all()
+    #     context['authors']=authors
+        
 
+    #     return context
+    
+    
+    
 class BookUpdateView(UpdateView):
     template_name = 'add.html'
     context_object_name = 'book'
