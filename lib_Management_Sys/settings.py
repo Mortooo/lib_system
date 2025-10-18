@@ -86,12 +86,16 @@ WSGI_APPLICATION = 'lib_Management_Sys.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+import dj_database_url
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse(
+        'postgresql://lib_db_wyrb_user:Gn3JleszKyyL1NSAJcOCUWql7rKQNd4h@dpg-d3pgt92li9vc73bihq6g-a.oregon-postgres.render.com/lib_db_wyrbe',
+        conn_max_age=600,
+        ssl_require=True
+    )
 }
+
 
 
 # Password validation
