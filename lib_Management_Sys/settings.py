@@ -90,7 +90,7 @@ import dj_database_url
 
 DATABASES = {
     'default': dj_database_url.parse(
-        'postgresql://lib_db_wyrb_user:Gn3JleszKyyL1NSAJcOCUWql7rKQNd4h@dpg-d3pgt92li9vc73bihq6g-a.oregon-postgres.render.com/lib_db_wyrbe',
+        'postgresql://lib_db_wyrb_user:Gn3JleszKyyL1NSAJcOCUWql7rKQNd4h@dpg-d3pgt92li9vc73bihq6g-a.oregon-postgres.render.com/lib_db_wyrb',
         conn_max_age=600,
         ssl_require=True
     )
