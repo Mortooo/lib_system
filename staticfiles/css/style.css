@@ -1,179 +1,186 @@
    * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+   }
 
-        body {
-            font-family: "Cairo", sans-serif;
-            background-color: #f5f7fb;
-            color: #222;
-            direction: rtl;
-        }
+   body {
+       font-family: "Cairo", sans-serif;
+       background-color: #f5f7fb;
+       color: #222;
+       direction: rtl;
+   }
 
-        /* الرأس */
-        header {
-            background-color: #1e3a8a;
-            color: white;
-            padding: 15px 0;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-        }
+   /* الرأس */
+   header {
+       background-color: #1e3a8a;
+       color: white;
+       padding: 15px 0;
+       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+   }
 
-        .container {
-            width: 90%;
-            margin: auto;
-            max-width: 1200px;
-        }
+   .container {
+       width: 90%;
+       margin: auto;
+       max-width: 1200px;
+   }
 
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+   .nav {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+   }
 
-        .logo {
-            font-size: 1.5em;
-            font-weight: 600;
-        }
+   .logo {
+       font-size: 1.5em;
+       font-weight: 600;
+   }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
+   nav a {
+       color: white;
+       text-decoration: none;
+       margin: 0 10px;
+       font-weight: 500;
+       transition: color 0.3s ease;
+   }
 
-        nav a:hover {
-            color: #facc15;
-        }
+   nav a:hover {
+       color: #facc15;
+   }
 
-        .btn-login {
-            background-color: #facc15;
-            color: #1e3a8a;
-            padding: 6px 14px;
-            border-radius: 5px;
-        }
+   .btn-login {
+       background-color: #facc15;
+       color: #1e3a8a;
+       padding: 6px 14px;
+       border-radius: 5px;
+   }
 
-        /* قسم الترحيب */
-        .hero {
-            background: linear-gradient(rgba(30, 58, 138, 0.85), rgba(30, 58, 138, 0.85)),
-                url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 20px 20px;
-        }
+   .btn-login:hover {
+       background-color: #fae89e;
+       color: #000000;
+       padding: 6px 14px;
+       border-radius: 5px;
+   }
 
-        .hero-content {
-            max-width: 700px;
-            margin: auto;
-        }
+   /* قسم الترحيب */
+   .hero {
+       background: linear-gradient(rgba(30, 58, 138, 0.85), rgba(30, 58, 138, 0.85)),
+           url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1350&q=80');
+       background-size: cover;
+       background-position: center;
+       color: white;
+       text-align: center;
+       padding: 20px 20px;
+   }
 
-        .hero h2 {
-            font-size: 2em;
-            margin-bottom: 15px;
-        }
+   .hero-content {
+       max-width: 700px;
+       margin: auto;
+   }
 
-        .hero p {
-            margin-bottom: 25px;
-        }
+   .hero h2 {
+       font-size: 2em;
+       margin-bottom: 15px;
+   }
 
-        /* البطاقات */
-        .features {
-            padding: 60px 0;
-        }
+   .hero p {
+       margin-bottom: 25px;
+   }
 
-        .cards {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-        }
+   /* البطاقات */
+   .features {
+       padding: 60px 0;
+   }
 
-        .card {
-            background: white;
-            border-radius: 15px;
-            width: 280px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+   .cards {
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: center;
+       gap: 10px;
+   }
 
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
+   .card {
+       background: white;
+       border-radius: 15px;
+       width: 280px;
+       padding: 25px;
+       text-align: center;
+       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+       transition: transform 0.3s, box-shadow 0.3s;
+   }
 
-        .icon {
-            font-size: 2em;
-            margin-bottom: 15px;
-        }
+   .card:hover {
+       transform: translateY(-8px);
+       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+   }
 
-        .btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 8px 16px;
-            background-color: #1e3a8a;
-            color: white;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background 0.3s;
-        }
+   .icon {
+       font-size: 2em;
+       margin-bottom: 15px;
+   }
 
-        .btn:hover {
-            background-color: #334ebd;
-        }
+   .btn {
+       display: inline-block;
+       margin-top: 10px;
+       padding: 8px 16px;
+       background-color: #1e3a8a;
+       color: white;
+       border-radius: 5px;
+       text-decoration: none;
+       transition: background 0.3s;
+   }
 
-        /* قسم حول النظام */
-        .about {
-            background-color: #e0e7ff;
-            text-align: center;
-            padding: 60px 20px;
-            font-size: 1.1em;
+   .btn:hover {
+       background-color: #334ebd;
+   }
 
-        }
+   /* قسم حول النظام */
+   .about {
+       background-color: #e0e7ff;
+       text-align: center;
+       padding: 60px 20px;
+       font-size: 1.1em;
 
-        .about h2 {
-            font-size: 1.8em;
-            margin-bottom: 15px;
-        }
+   }
 
-        /* التذييل */
-        footer {
-            background-color: #1e3a8a;
-            color: white;
-            text-align: center;
-            padding: 15px;
-        }
+   .about h2 {
+       font-size: 1.8em;
+       margin-bottom: 15px;
+   }
 
-        /* متجاوب */
-        @media (max-width: 768px) {
-            nav {
-                display: none;
-            }
+   /* التذييل */
+   footer {
+       background-color: #1e3a8a;
+       color: white;
+       text-align: center;
+       padding: 15px;
+   }
 
-            .cards {
-                flex-direction: column;
-                align-items: center;
-            }
+   /* متجاوب */
+   @media (max-width: 768px) {
+       nav {
+           display: none;
+       }
 
-            .hero h2 {
-                font-size: 1.5em;
-            }
-        }
+       .cards {
+           flex-direction: column;
+           align-items: center;
+       }
 
-        .table-hover tbody tr:hover {
-            background-color: #f2f8ff;
-            transition: 0.3s;
-        }
-        .btn {
-            transition: transform 0.2s ease;
-        }
-        .btn:hover {
-            transform: scale(1.05);
-        }
+       .hero h2 {
+           font-size: 1.5em;
+       }
+   }
 
+   .table-hover tbody tr:hover {
+       background-color: #f2f8ff;
+       transition: 0.3s;
+   }
 
+   .btn {
+       transition: transform 0.2s ease;
+   }
+
+   .btn:hover {
+       transform: scale(1.05);
+   }
