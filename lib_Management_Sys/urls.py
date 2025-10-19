@@ -29,6 +29,7 @@ urlpatterns = [
     path('borrowers/',include('borrowers.urls')),
     path('users/',include('users.urls')),
     path('borrows/',include('borrows.urls')),
+    path('authors/',include('authors.urls')),
 ]
 
 # if settings.DEBUG:

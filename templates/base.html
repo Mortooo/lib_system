@@ -42,9 +42,10 @@
             <nav>
                 <a href="{% url 'home' %}">الرئيسية</a>
                 <a href="{% url 'books_list' %}">الكتب</a>
+                <a href="{% url 'authors_list' %}">المؤلفون</a>
                 <a href="{% url 'borrowers_list' %}">الأعضاء</a>
                 <a href="{% url 'borrows_list' %}">الإعارة</a>
-                <a href="{% url 'users_list' %}">المستخدمون</a>
+                <a href="{% url 'users_list' %}">الموظفون</a>
                 {% if user.is_authenticated %}
                 <a href="{% url 'account_logout' %}" class="btn-login">تسجيل خروج</a> 
                 {% else %}    
